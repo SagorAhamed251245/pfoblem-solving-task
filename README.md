@@ -13,7 +13,12 @@ function twoSum(nums, target) {
   }
   return null;
 }
+
+// Example
+console.log(twoSum([2, 7, 11, 15], 9)); // Output: [0, 1]
 ```
+
+---
 
 ### 2. **Maximum Number in an Array (Easy)**
 
@@ -29,7 +34,12 @@ function findMax(nums) {
   }
   return max;
 }
+
+// Example
+console.log(findMax([3, 5, 7, 2, 8])); // Output: 8
 ```
+
+---
 
 ### 3. **Reverse a String (Easy)**
 
@@ -39,7 +49,12 @@ function findMax(nums) {
 function reverseString(str) {
   return str.split("").reverse().join("");
 }
+
+// Example
+console.log(reverseString("hello")); // Output: "olleh"
 ```
+
+---
 
 ### 4. **Find the Index of an Element (Easy)**
 
@@ -54,7 +69,13 @@ function findIndex(nums, target) {
   }
   return -1;
 }
+
+// Example
+console.log(findIndex([10, 20, 30, 40, 50], 30)); // Output: 2
+console.log(findIndex([10, 20, 30, 40, 50], 60)); // Output: -1
 ```
+
+---
 
 ### 5. **Count the Vowels in a String (Easy)**
 
@@ -71,7 +92,12 @@ function countVowels(str) {
   }
   return count;
 }
+
+// Example
+console.log(countVowels("Hello World")); // Output: 3
 ```
+
+---
 
 ### 6. **Remove Duplicates from an Array (Easy)**
 
@@ -88,7 +114,14 @@ function removeDuplicates(nums) {
   }
   return uniqueIndex + 1;
 }
+
+// Example
+const nums = [1, 1, 2, 3, 3];
+console.log(removeDuplicates(nums)); // Output: 3
+console.log(nums.slice(0, 3)); // Output: [1, 2, 3]
 ```
+
+---
 
 ### 7. **Merge Two Sorted Arrays (Easy)**
 
@@ -110,7 +143,12 @@ function mergeArrays(arr1, arr2) {
   }
   return result.concat(arr1.slice(i)).concat(arr2.slice(j));
 }
+
+// Example
+console.log(mergeArrays([1, 3, 5], [2, 4, 6])); // Output: [1, 2, 3, 4, 5, 6]
 ```
+
+---
 
 ### 8. **Sum of Array Elements (Easy)**
 
@@ -124,7 +162,12 @@ function sumArray(nums) {
   }
   return sum;
 }
+
+// Example
+console.log(sumArray([1, 2, 3, 4, 5])); // Output: 15
 ```
+
+---
 
 ### 9. **Check for Even Number (Easy)**
 
@@ -134,7 +177,13 @@ function sumArray(nums) {
 function isEven(num) {
   return num % 2 === 0;
 }
+
+// Example
+console.log(isEven(4)); // Output: true
+console.log(isEven(5)); // Output: false
 ```
+
+---
 
 ### 10. **Find the Smallest Number in an Array (Easy)**
 
@@ -150,6 +199,9 @@ function findMin(nums) {
   }
   return min;
 }
-```
 
-These tasks are designed to be manageable for beginners while helping build problem-solving skills. Let me know if you'd like more similar problems!
+// Example
+console.log(findMin([5, 2, 9, 1, 7])); // Output: 1
+``` 
+
+Each example demonstrates how to use the function along with its expected output for clarity.
