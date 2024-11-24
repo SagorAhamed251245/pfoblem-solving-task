@@ -203,5 +203,73 @@ function findMin(nums) {
 // Example
 console.log(findMin([5, 2, 9, 1, 7])); // Output: 1
 ``` 
+```javascript
+const persons = [
+  { id: 1, name: 'Alice', age: 25, occupation: 'Engineer' },
+  { id: 2, name: 'Bob', age: 30, occupation: 'Designer' },
+  { id: 3, name: 'Charlie', age: 28, occupation: 'Teacher' },
+  { id: 4, name: 'David', age: 35, occupation: 'Developer' },
+  { id: 5, name: 'Eve', age: 22, occupation: 'Artist' },
+  { id: 6, name: 'Frank', age: 29, occupation: 'Writer' },
+  { id: 7, name: 'Grace', age: 27, occupation: 'Scientist' },
+  { id: 8, name: 'Hannah', age: 33, occupation: 'Doctor' },
+  { id: 9, name: 'Ian', age: 24, occupation: 'Photographer' },
+  { id: 10, name: 'Jack', age: 40, occupation: 'Chef' },
+  { id: 11, name: 'Kara', age: 26, occupation: 'Musician' },
+  { id: 12, name: 'Liam', age: 31, occupation: 'Architect' },
+  { id: 13, name: 'Mona', age: 23, occupation: 'Social Worker' },
+  { id: 14, name: 'Nathan', age: 36, occupation: 'Pilot' },
+  { id: 15, name: 'Olivia', age: 34, occupation: 'Nurse' },
+  { id: 16, name: 'Paul', age: 21, occupation: 'Student' },
+  { id: 17, name: 'Quinn', age: 29, occupation: 'Entrepreneur' },
+  { id: 18, name: 'Rachel', age: 38, occupation: 'Manager' },
+  { id: 19, name: 'Steve', age: 37, occupation: 'Lawyer' },
+  { id: 20, name: 'Tina', age: 28, occupation: 'Data Analyst' }
+];
+
+const findOldestPerson = () => persons.reduce((oldest, person) => {
+  return person.age > oldest.age ? person : oldest;
+}, persons[0]);
+
+console.log(findOldestPerson()); 
+// { id: 4, name: 'David', age: 35, occupation: 'Developer' }
+
+const findByAgeRange = (minAge, maxAge) => {
+  return persons.filter(person => person.age >= minAge && person.age <= maxAge);
+};
+
+console.log(findByAgeRange(25, 30));
+// [ { id: 1, name: 'Alice', age: 25, occupation: 'Engineer' },
+//   { id: 3, name: 'Charlie', age: 28, occupation: 'Teacher' },
+//   { id: 2, name: 'Bob', age: 30, occupation: 'Designer' } ]
+const countByOccupation = () => {
+  return persons.reduce((count, person) => {
+    count[person.occupation] = (count[person.occupation] || 0) + 1;
+    return count;
+  }, {});
+};
+
+console.log(countByOccupation()); 
+// { Engineer: 1, Designer: 1, Teacher: 1, Developer: 1, Artist: 1 }
+const updateAgeById = (id, newAge) => {
+  const person = persons.find(person => person.id === id);
+  if (person) {
+    person.age = newAge;
+  }
+};
+
+updateAgeById(3, 29);
+console.log(persons);
+// Updated array where Charlie's age is now 29
+const areAllAboveAge = (minAge) => persons.every(person => person.age > minAge);
+
+console.log(areAllAboveAge(18)); // true
+console.log(areAllAboveAge(30)); // false
+const totalAge = () => persons.reduce((sum, person) => sum + person.age, 0);
+
+console.log(totalAge()); // 140 (sum of all ages)
+
+``` 
+
 
 Each example demonstrates how to use the function along with its expected output for clarity.
