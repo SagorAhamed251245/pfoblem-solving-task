@@ -204,6 +204,26 @@ function findMin(nums) {
 console.log(findMin([5, 2, 9, 1, 7])); // Output: 1
 ``` 
 ```javascript
+Here are additional problem-solving examples using an array of objects in JavaScript, where each object represents a person:
+
+---
+
+### Example Array
+```javascript
+const persons = [
+  { id: 1, name: 'Alice', age: 25, occupation: 'Engineer' },
+  { id: 2, name: 'Bob', age: 30, occupation: 'Designer' },
+  { id: 3, name: 'Charlie', age: 28, occupation: 'Teacher' },
+  { id: 4, name: 'David', age: 35, occupation: 'Developer' },
+  { id: 5, name: 'Eve', age: 22, occupation: 'Artist' }
+];
+```
+
+---
+
+Here’s an expanded version of your `persons` array with additional data:
+
+```javascript
 const persons = [
   { id: 1, name: 'Alice', age: 25, occupation: 'Engineer' },
   { id: 2, name: 'Bob', age: 30, occupation: 'Designer' },
@@ -226,14 +246,22 @@ const persons = [
   { id: 19, name: 'Steve', age: 37, occupation: 'Lawyer' },
   { id: 20, name: 'Tina', age: 28, occupation: 'Data Analyst' }
 ];
+``` 
 
+### 2. **Find the Oldest Person**
+```javascript
 const findOldestPerson = () => persons.reduce((oldest, person) => {
   return person.age > oldest.age ? person : oldest;
 }, persons[0]);
 
 console.log(findOldestPerson()); 
 // { id: 4, name: 'David', age: 35, occupation: 'Developer' }
+```
 
+---
+
+### 3. **Find All Persons Within an Age Range**
+```javascript
 const findByAgeRange = (minAge, maxAge) => {
   return persons.filter(person => person.age >= minAge && person.age <= maxAge);
 };
@@ -242,6 +270,12 @@ console.log(findByAgeRange(25, 30));
 // [ { id: 1, name: 'Alice', age: 25, occupation: 'Engineer' },
 //   { id: 3, name: 'Charlie', age: 28, occupation: 'Teacher' },
 //   { id: 2, name: 'Bob', age: 30, occupation: 'Designer' } ]
+```
+
+---
+
+### 4. **Count the Number of Persons for Each Occupation**
+```javascript
 const countByOccupation = () => {
   return persons.reduce((count, person) => {
     count[person.occupation] = (count[person.occupation] || 0) + 1;
@@ -251,6 +285,12 @@ const countByOccupation = () => {
 
 console.log(countByOccupation()); 
 // { Engineer: 1, Designer: 1, Teacher: 1, Developer: 1, Artist: 1 }
+```
+
+---
+
+### 5. **Update the Age of a Person by ID**
+```javascript
 const updateAgeById = (id, newAge) => {
   const person = persons.find(person => person.id === id);
   if (person) {
@@ -261,15 +301,104 @@ const updateAgeById = (id, newAge) => {
 updateAgeById(3, 29);
 console.log(persons);
 // Updated array where Charlie's age is now 29
+```
+
+---
+
+### 6. **Check if All Persons Are Above a Certain Age**
+```javascript
 const areAllAboveAge = (minAge) => persons.every(person => person.age > minAge);
 
 console.log(areAllAboveAge(18)); // true
 console.log(areAllAboveAge(30)); // false
+```
+
+---
+
+### 7. **Find the Total Age of All Persons**
+```javascript
 const totalAge = () => persons.reduce((sum, person) => sum + person.age, 0);
 
 console.log(totalAge()); // 140 (sum of all ages)
+```
 
-``` 
+---
+
+### 8. **Sort by Multiple Criteria (Age, then Name)**
+```javascript
+const sortByAgeAndName = () => {
+  return persons.sort((a, b) => {
+    if (a.age === b.age) {
+      return a.name.localeCompare(b.name);
+    }
+    return a.age - b.age;
+  });
+};
+
+console.log(sortByAgeAndName());
+```
+
+---
+
+### 9. **Check if Any Person Matches a Condition**
+```javascript
+const isAnyoneUnder25 = () => persons.some(person => person.age < 25);
+
+console.log(isAnyoneUnder25()); // true
+```
+
+---
+
+### 10. **Create a New Array with Custom Keys**
+For example, extract only names and ages.
+```javascript
+const extractNamesAndAges = () => persons.map(person => ({
+  name: person.name,
+  age: person.age
+}));
+
+console.log(extractNamesAndAges());
+// [ { name: 'Alice', age: 25 }, { name: 'Bob', age: 30 }, ... ]
+```
+
+---
+
+### 11. **Paginate the Results**
+```javascript
+const paginate = (page, pageSize) => {
+  const start = (page - 1) * pageSize;
+  return persons.slice(start, start + pageSize);
+};
+
+console.log(paginate(1, 2)); 
+// First page with 2 results: [ { id: 1, name: 'Alice', age: 25 }, { id: 2, name: 'Bob', age: 30 } ]
+```
+
+---
+
+### 12. **Find Duplicate Names (if any)**
+```javascript
+const findDuplicates = () => {
+  const names = persons.map(person => person.name);
+  return names.filter((name, index) => names.indexOf(name) !== index);
+};
+
+console.log(findDuplicates()); // Empty array if no duplicates
+```
+
+---
+
+### 13. **Get Distinct Occupations**
+```javascript
+const getDistinctOccupations = () => [...new Set(persons.map(person => person.occupation))];
+
+console.log(getDistinctOccupations()); 
+// [ 'Engineer', 'Designer', 'Teacher', 'Developer', 'Artist' ]
+```
+
+---
+
+ 
 
 
 Each example demonstrates how to use the function along with its expected output for clarity.
